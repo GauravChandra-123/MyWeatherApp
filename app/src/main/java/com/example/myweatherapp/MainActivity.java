@@ -88,16 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (backpressed + TIME_INTERVAL > System.currentTimeMillis())
-        {
-            super.onBackPressed();
-            return;
-
-        }
-        else {
-            Toast.makeText(getBaseContext(), "Press Back Again to Exit", Toast.LENGTH_SHORT).show();
-        }
-        backpressed = System.currentTimeMillis();
+        moveTaskToBack(true);
+        android.os.Process.killProcess(android.os.Process.myPid());
+        System.exit(1);
 
 
     }
